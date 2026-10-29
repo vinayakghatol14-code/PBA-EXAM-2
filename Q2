@@ -1,0 +1,15 @@
+Q2. Employee Salary Analysis: Write a Python program using Pandas to read employee details from employee.csv. Display each employee’s name, department, and salary, then calculate and display the average salary for each department.
+
+import pandas as pd
+
+# Read employee data from the CSV file
+employees = pd.read_csv("employee.csv")
+
+# Display employee names, departments, and salaries
+print("Employee Details:")
+print(employees[["Name", "Department", "Salary"]].to_string(index=False))
+
+# Calculate and display average salary by department
+print("\nAverage Salary by Department:")
+average_salary = employees.groupby("Department")["Salary"].mean()
+print(average_salary)
